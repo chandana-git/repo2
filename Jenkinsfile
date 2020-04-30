@@ -2,6 +2,11 @@ node {
 stage('SCM Checkout')
 {
 git 'https://github.com/chandana-git/repo2.git'
+archiveArtifacts 'target/*.war'
+}
+stage('archieve artifacts')
+{
+archiveArtifacts 'target/*.war'
 }
 stage('Compile Package from maven')
 {
@@ -14,3 +19,4 @@ stage('Deploy to tomcat')
     deploy adapters: [tomcat9(credentialsId: 'e11d77ae-d6eb-41b6-9301-ce4b47c55079', path: '', url: 'http://localhost:9090/')], contextPath: null, war: 'target/JenkinsWar.war'
 }
 }
+
