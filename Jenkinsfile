@@ -4,7 +4,7 @@ stage('SCM Checkout')
 git 'https://github.com/chandana-git/repo2.git'
 archiveArtifacts 'target/*.war'
 }
-stage('archieve artifacts')
+stage('archiving the artifact artifacts')
 {
 archiveArtifacts 'target/*.war'
 }
